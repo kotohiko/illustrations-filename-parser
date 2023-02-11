@@ -1,4 +1,4 @@
-package com.jacob;
+package com.jacob.calculator;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
