@@ -1,6 +1,4 @@
-package com.jacob;
-
-import com.jacob.calculator.DateDiffCalculator;
+package com.jacob.calculator;
 
 import java.util.Scanner;
 
