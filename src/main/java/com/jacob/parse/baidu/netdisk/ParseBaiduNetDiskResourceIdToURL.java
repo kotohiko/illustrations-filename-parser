@@ -1,4 +1,4 @@
-package com.jacob.baidu.netdisk;
+package com.jacob.parse.baidu.netdisk;
 
 /**
  * @author Jacob Suen

@@ -1,4 +1,4 @@
-package com.jacob.twitter;
+package com.jacob.parse.twitter;
 
 /**
  * 用于将Jacob保存的Twitter图片名称解析为图片资源URL的简单工具类

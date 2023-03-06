@@ -1,9 +1,9 @@
-package com.jacob.bilibili;
+package com.jacob.parse.bilibili;
 
 /**
  * @author Jacob Suen
  */
-public class ParseFileNameToBilibiliURL {
+public class ParseFileNameToBilibiliUrl {
     public static String parse(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");

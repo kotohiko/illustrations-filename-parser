@@ -1,4 +1,4 @@
-package com.jacob.bilibili;
+package com.jacob.parse.bilibili;
 
 /**
  * @author Jacob Suen
