@@ -1,7 +1,5 @@
 package com.jacob.parse.baidu.netdisk;
 
-import com.jacob.parse.baidu.netdisk.ParseBaiduNetDiskResourceIdToURL;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

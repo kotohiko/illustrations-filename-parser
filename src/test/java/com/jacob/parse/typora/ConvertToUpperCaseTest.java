@@ -1,7 +1,5 @@
 package com.jacob.parse.typora;
 
-import com.jacob.parse.typora.ConvertToUpperCase;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

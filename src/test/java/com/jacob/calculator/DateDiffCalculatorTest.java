@@ -9,6 +9,6 @@ public class DateDiffCalculatorTest {
         String fromDate = input.next();
         System.out.print("请输入截止日期（yyyy-mm-dd）：");
         String toDate = input.next();
-        System.out.println(DateDiffCalculator.dateDiffCalculator(fromDate,toDate));
+        System.out.println(DateDiffCalculator.dateDiffCalculator(fromDate, toDate));
     }
 }
