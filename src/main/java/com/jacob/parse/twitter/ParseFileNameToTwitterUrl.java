@@ -1,12 +1,12 @@
 package com.jacob.parse.twitter;
 
 /**
- * 用于将Jacob保存的Twitter图片名称解析为图片资源URL的简单工具类
+ * 用于将 Jacob 保存的 Twitter 图片名称解析为图片资源URL的简单工具类
  *
  * @author Jacob Suen
  * @version 1.0
  */
-public class ParseFileNameToTwitterURL {
+public class ParseFileNameToTwitterUrl {
     public static String parse(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
