@@ -1,4 +1,4 @@
-package com.jacob.parse.typora;
+package com.jacob.common;
 
 /**
  * @author Jacob Suen
