@@ -10,20 +10,19 @@ import java.io.InputStreamReader;
 public class ParseFileNameToUrlTest {
     public static void main(String[] args) throws IOException {
         String msg = """
-                Choose your theme:
+                Choose your entrance:
                     [1]Pixiv
-                    [2]Twitter
-                    [3]yande
-                    [4]Miyoushe
-                    [5]Danbooru
-                    [6]Bilibili
-                    [7]Baidu Netdisk
-                    [8]Alphacoders
-                Or maybe you wanna other ways:
-                    [9]Common
-                    [10]Pixiv illustrator ID""";
+                    [2]Pixiv illustrator ID
+                    [3]Twitter
+                    [4]yande
+                    [5]Miyoushe
+                    [6]Danbooru
+                    [7]Bilibili
+                    [8]Baidu Netdisk
+                    [9]Alphacoders
+                    [10]Common""";
         System.out.println(msg);
-        System.out.print("Enter access code (1~10): ");
+        enterAccessCode();
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
@@ -33,6 +32,12 @@ public class ParseFileNameToUrlTest {
             String filename = line;
             String out = CommonEnter.parseFileName(themeCode, filename);
             System.out.println(out);
+            System.out.println("==================END LINE====================");
+            enterAccessCode();
         }
+    }
+
+    private static void enterAccessCode() {
+        System.out.print("Enter access code (1~10): ");
     }
 }

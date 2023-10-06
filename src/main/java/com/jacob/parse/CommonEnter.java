@@ -17,23 +17,23 @@ public class CommonEnter {
             case 1:
                 return ParsePixivIllustrationIdToUrl.parse(input);
             case 2:
-                return ParseFileNameToTwitterUrl.parse(input);
-            case 3:
-                return ParseFileNameToYandeUrl.parse(input);
-            case 4:
-                return ParseFileNameToMiyousheUrl.parse(input);
-            case 5:
-                return ParseFileNameToDanbooruUrl.parse(input);
-            case 6:
-                return ParseFileNameToBilibiliUrl.parse(input);
-            case 7:
-                return ParseBaiduNetDiskResourceIdToURL.parse(input);
-            case 8:
-                return ParseFileNameToAlphacodersUrl.parse(input);
-            case 9:
-                return ConvertToUpperCase.parse(input);
-            case 10:
                 return ParsePixivArtistIdToUrl.parse(input);
+            case 3:
+                return ParseFileNameToTwitterUrl.parse(input);
+            case 4:
+                return ParseFileNameToYandeUrl.parse(input);
+            case 5:
+                return ParseFileNameToMiyousheUrl.parse(input);
+            case 6:
+                return ParseFileNameToDanbooruUrl.parse(input);
+            case 7:
+                return ParseFileNameToBilibiliUrl.parse(input);
+            case 8:
+                return ParseBaiduNetDiskResourceIdToURL.parse(input);
+            case 9:
+                return ParseFileNameToAlphacodersUrl.parse(input);
+            case 10:
+                return ConvertToUpperCase.parse(input);
             default:
                 break;
         }
