@@ -7,21 +7,31 @@ import java.io.InputStreamReader;
 /**
  * @author Jacob Suen
  */
-public class ParseFileNameToUrlTest {
-    public static void main(String[] args) throws IOException {
-        String msg = """
-                Choose your entrance:
-                    [1]Pixiv
-                    [2]Pixiv illustrator ID
-                    [3]Twitter
-                    [4]yande
-                    [5]Miyoushe
-                    [6]Danbooru
-                    [7]Bilibili
-                    [8]Baidu Netdisk
-                    [9]Alphacoders
-                    [10]Common""";
-        System.out.println(msg);
+public class ParseFileNameToUrlEntrance {
+
+    private static final String ENTRANCE_MESSAGE = """
+            Choose your entrance:
+            [1]Pixiv
+            [2]Pixiv illustrator ID
+            [3]Twitter
+            [4]yande
+            [5]Miyoushe
+            [6]Danbooru
+            [7]Bilibili
+            [8]Baidu Netdisk
+            [9]Alphacoders
+            [10]Common
+            [11]ニコニコ静画""";
+
+    private ParseFileNameToUrlEntrance() {
+    }
+
+    private static void enterAccessCode() {
+        System.out.print("Enter access code (1 — 11): ");
+    }
+
+    public static void interact() throws IOException {
+        System.out.println(ENTRANCE_MESSAGE);
         enterAccessCode();
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
@@ -35,9 +45,5 @@ public class ParseFileNameToUrlTest {
             System.out.println("==================END LINE====================");
             enterAccessCode();
         }
-    }
-
-    private static void enterAccessCode() {
-        System.out.print("Enter access code (1~10): ");
     }
 }

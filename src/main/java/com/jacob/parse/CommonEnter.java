@@ -1,18 +1,23 @@
 package com.jacob.parse;
 
+import com.jacob.common.ConvertToUpperCase;
 import com.jacob.parse.alphacoders.ParseFileNameToAlphacodersUrl;
 import com.jacob.parse.baidu.netdisk.ParseBaiduNetDiskResourceIdToURL;
 import com.jacob.parse.bilibili.ParseFileNameToBilibiliUrl;
 import com.jacob.parse.danbooru.ParseFileNameToDanbooruUrl;
 import com.jacob.parse.miyoushe.ParseFileNameToMiyousheUrl;
+import com.jacob.parse.nico.ParseFileNameToNicoUrl;
 import com.jacob.parse.pixiv.ParsePixivArtistIdToUrl;
 import com.jacob.parse.pixiv.ParsePixivIllustrationIdToUrl;
 import com.jacob.parse.twitter.ParseFileNameToTwitterUrl;
-import com.jacob.common.ConvertToUpperCase;
 import com.jacob.parse.yande.ParseFileNameToYandeUrl;
 
 public class CommonEnter {
-    public static String parseFileName(int themeCode, String input){
+
+    private CommonEnter() {
+    }
+
+    public static String parseFileName(int themeCode, String input) {
         switch (themeCode) {
             case 1:
                 return ParsePixivIllustrationIdToUrl.parse(input);
@@ -34,6 +39,8 @@ public class CommonEnter {
                 return ParseFileNameToAlphacodersUrl.parse(input);
             case 10:
                 return ConvertToUpperCase.parse(input);
+            case 11:
+                return ParseFileNameToNicoUrl.parse(input);
             default:
                 break;
         }

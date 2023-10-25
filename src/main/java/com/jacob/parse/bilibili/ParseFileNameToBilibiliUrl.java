@@ -4,6 +4,10 @@ package com.jacob.parse.bilibili;
  * @author Jacob Suen
  */
 public class ParseFileNameToBilibiliUrl {
+
+    private ParseFileNameToBilibiliUrl() {
+    }
+
     public static String parse(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
