@@ -1,6 +1,5 @@
 package com.jacob.parse;
 
-import com.jacob.common.ConvertToUpperCase;
 import com.jacob.parse.alphacoders.ParseFileNameToAlphacodersUrl;
 import com.jacob.parse.baidu.netdisk.ParseBaiduNetDiskResourceIdToURL;
 import com.jacob.parse.bilibili.ParseFileNameToBilibiliUrl;
@@ -38,8 +37,6 @@ public class CommonEnter {
             case 9:
                 return ParseFileNameToAlphacodersUrl.parse(input);
             case 10:
-                return ConvertToUpperCase.parse(input);
-            case 11:
                 return ParseFileNameToNicoUrl.parse(input);
             default:
                 break;

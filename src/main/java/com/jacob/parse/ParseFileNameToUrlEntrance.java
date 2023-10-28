@@ -20,8 +20,7 @@ public class ParseFileNameToUrlEntrance {
             [7]Bilibili
             [8]Baidu Netdisk
             [9]Alphacoders
-            [10]Common
-            [11]ニコニコ静画""";
+            [10]ニコニコ静画""";
 
     private ParseFileNameToUrlEntrance() {
     }
