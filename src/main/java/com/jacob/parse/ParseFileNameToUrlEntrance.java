@@ -11,22 +11,21 @@ public class ParseFileNameToUrlEntrance {
 
     private static final String ENTRANCE_MESSAGE = """
             Choose your entrance:
-            [1]Pixiv
-            [2]Pixiv illustrator ID
-            [3]Twitter
-            [4]yande
-            [5]Miyoushe
-            [6]Danbooru
-            [7]Bilibili
-            [8]Baidu Netdisk
-            [9]Alphacoders
-            [10]ニコニコ静画""";
+            [p]ixiv
+            [t]witter
+            [y]ande
+            [m]iyoushe
+            [d]anbooru
+            [b]ilibili
+            [ba]idu Netdisk
+            [a]lphacoders
+            [n]iconico ニコニコ静画""";
 
     private ParseFileNameToUrlEntrance() {
     }
 
     private static void enterAccessCode() {
-        System.out.print("Enter access code (1 — 11): ");
+        System.out.print("Enter access code (e.g. p): ");
     }
 
     public static void interact() throws IOException {
@@ -35,7 +34,7 @@ public class ParseFileNameToUrlEntrance {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
-            int themeCode = Integer.parseInt(line);
+            String themeCode = line;
             System.out.print("Enter filename: ");
             line = in.readLine();
             String filename = line;
