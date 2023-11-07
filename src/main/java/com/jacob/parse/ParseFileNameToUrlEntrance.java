@@ -40,7 +40,7 @@ public class ParseFileNameToUrlEntrance {
             String filename = line;
             String out = CommonEnter.parseFileName(themeCode, filename);
             System.out.println(out);
-            System.out.println("==================END LINE====================");
+            System.out.println("********************************END LINE********************************");
             enterAccessCode();
         }
     }

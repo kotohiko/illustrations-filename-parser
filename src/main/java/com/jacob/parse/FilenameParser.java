@@ -20,7 +20,7 @@ public class FilenameParser {
         sb.insert(19, "/");
         sb.insert(sb.indexOf("status"), "/");
         sb.insert(sb.indexOf("status") + 6, "/");
-        return String.valueOf(sb);
+        return String.valueOf(sb.substring(0, sb.indexOf("photo")));
     }
 
     public static String yandeParser(String str) {
@@ -60,9 +60,8 @@ public class FilenameParser {
         sb.insert(5, "://");
         sb.insert(24, "/");
         sb.insert(sb.indexOf("opus") + 4, "/");
-        StringBuilder sb2 = new StringBuilder(sb.toString());
-        sb2.delete(sb2.indexOf("spm_id_from"), sb2.length());
-        return sb2.toString();
+        sb.delete(sb.indexOf("spm_id_from"), sb.length());
+        return sb.toString();
     }
 
     public static String baiduNetDiskParser(String str) {
