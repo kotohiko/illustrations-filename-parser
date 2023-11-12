@@ -1,7 +1,15 @@
 package com.jacob.parse;
 
+import com.jacob.parse.core.FilenameParser;
+
+/**
+ * Get input from
+ */
 public final class CommonEnter {
 
+    /**
+     * Don't let anyone instantiate this class
+     */
     private CommonEnter() {
     }
 
@@ -33,7 +41,7 @@ public final class CommonEnter {
             case "ba" -> FilenameParser.baiduNetDiskParser(fileName);
             case "n" -> FilenameParser.nicoVideoParser(fileName);
             case "a" -> FilenameParser.alphacodersParser(fileName);
-            default -> throw new IllegalStateException("Unexpected value: " + siteCode);
+            default -> null;
         };
     }
 }

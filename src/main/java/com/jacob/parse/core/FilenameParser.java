@@ -1,7 +1,10 @@
-package com.jacob.parse;
+package com.jacob.parse.core;
 
 /**
- * 解析文件名核心类
+ * Filename parsing core class.
+ *
+ * @author Jacob Suen
+ * @since Oct 29, 2023
  */
 public final class FilenameParser {
 
