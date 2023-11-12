@@ -7,20 +7,24 @@ import java.io.InputStreamReader;
 /**
  * @author Jacob Suen
  */
-public class ParseFileNameToUrlEntrance {
+public final class ParseFileNameToUrlEntrance {
 
     private static final String ENTRANCE_MESSAGE = """
             Choose your entrance:
+            [a]lphacoders
+            [bi]libili
+            [ba]idu Netdisk
+            [d]anbooru
+            [m]iyoushe
+            [n]iconico ニコニコ静画
             [p]ixiv
             [t]witter
-            [y]ande
-            [m]iyoushe
-            [d]anbooru
-            [b]ilibili
-            [ba]idu Netdisk
-            [a]lphacoders
-            [n]iconico ニコニコ静画""";
+            [ya]nde
+            [yo]utube""";
 
+    /**
+     * Don't let anyone instantiate this class
+     */
     private ParseFileNameToUrlEntrance() {
     }
 
@@ -34,14 +38,21 @@ public class ParseFileNameToUrlEntrance {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
-            String themeCode = line;
-            System.out.print("Enter filename: ");
-            line = in.readLine();
-            String filename = line;
-            String out = CommonEnter.parseFileName(themeCode, filename);
-            System.out.println(out);
-            System.out.println("********************************END LINE********************************");
-            enterAccessCode();
+            String siteCode = line;
+            String sideCodeValidation = CommonEnter.parseSiteCode(siteCode);
+            if (sideCodeValidation == null) {
+                System.out.println("Access code invalid, please try again.");
+                System.out.println("********************************END LINE********************************");
+                interact();
+            } else {
+                System.out.print("Enter filename: ");
+                line = in.readLine();
+                String filename = line;
+                String out = CommonEnter.parseFileName(sideCodeValidation, filename);
+                System.out.println(out);
+                System.out.println("********************************END LINE********************************");
+                enterAccessCode();
+            }
         }
     }
 }

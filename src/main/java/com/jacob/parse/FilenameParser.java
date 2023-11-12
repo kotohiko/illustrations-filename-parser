@@ -1,6 +1,9 @@
 package com.jacob.parse;
 
-public class FilenameParser {
+/**
+ * 解析文件名核心类
+ */
+public final class FilenameParser {
 
     private FilenameParser() {
     }
@@ -20,7 +23,11 @@ public class FilenameParser {
         sb.insert(19, "/");
         sb.insert(sb.indexOf("status"), "/");
         sb.insert(sb.indexOf("status") + 6, "/");
-        return String.valueOf(sb.substring(0, sb.indexOf("photo")));
+        if (str.contains("photo")) {
+            return sb.substring(0, sb.indexOf("photo"));
+        } else {
+            return sb.toString();
+        }
     }
 
     public static String yandeParser(String str) {
@@ -77,6 +84,13 @@ public class FilenameParser {
         sb.insert(5, "://");
         sb.insert(sb.indexOf("com") + 3, "/");
         sb.insert(sb.indexOf("i="), "?");
+        return sb.toString();
+    }
+
+    public static String youtubeParser(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        sb.insert(5, "://");
+        sb.insert(sb.indexOf("youtu.be") + 8, "/");
         return sb.toString();
     }
 }
