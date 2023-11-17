@@ -3,7 +3,7 @@ package com.jacob.parse;
 import com.jacob.parse.core.FilenameParser;
 
 /**
- * Get input from
+ * Get input data from console/front-end.
  */
 public final class CommonEnter {
 

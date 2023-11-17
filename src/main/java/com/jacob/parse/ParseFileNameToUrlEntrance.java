@@ -1,7 +1,5 @@
 package com.jacob.parse;
 
-import com.jacob.parse.CommonEnter;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,8 +7,8 @@ import java.io.InputStreamReader;
 /**
  * Entrance of Parsing Filename to URL.
  *
- * @since Oct 2, 2023
  * @author Jacob Suen
+ * @since Oct 2, 2023
  */
 public final class ParseFileNameToUrlEntrance {
 
