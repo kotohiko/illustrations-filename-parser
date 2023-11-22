@@ -35,6 +35,10 @@ public final class ParseFileNameToUrlEntrance {
         System.out.print("Enter access code (e.g. p): ");
     }
 
+    private static void endLinePrint() {
+        System.out.println("********************************END LINE********************************");
+    }
+
     public static void interact() throws IOException {
         System.out.println(ENTRANCE_MESSAGE);
         enterAccessCode();
@@ -43,9 +47,9 @@ public final class ParseFileNameToUrlEntrance {
         while ((line = in.readLine()) != null) {
             String siteCode = line;
             String sideCodeValidation = CommonEnter.parseSiteCode(siteCode);
-            if (sideCodeValidation == null) {
+            if (sideCodeValidation == null || sideCodeValidation.isBlank()) {
                 System.out.println("Access code invalid, please try again.");
-                System.out.println("********************************END LINE********************************");
+                endLinePrint();
                 interact();
             } else {
                 System.out.print("Enter filename: ");
@@ -53,7 +57,7 @@ public final class ParseFileNameToUrlEntrance {
                 String filename = line;
                 String out = CommonEnter.parseFileName(sideCodeValidation, filename);
                 System.out.println(out);
-                System.out.println("********************************END LINE********************************");
+                endLinePrint();
                 enterAccessCode();
             }
         }

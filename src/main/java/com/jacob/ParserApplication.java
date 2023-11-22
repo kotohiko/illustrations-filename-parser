@@ -7,10 +7,10 @@ import java.io.IOException;
 /**
  * Startup class of the project.
  *
- * @since Oct 25, 2023
  * @author Jacob Suen
+ * @since Oct 25, 2023
  */
-public final class Application {
+public final class ParserApplication {
     public static void main(String[] args) throws IOException {
         ParseFileNameToUrlEntrance.interact();
     }
