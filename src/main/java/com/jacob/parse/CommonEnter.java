@@ -13,6 +13,11 @@ public final class CommonEnter {
     private CommonEnter() {
     }
 
+    /**
+     * Sitecode validation.
+     * @param siteCode code of variety websites
+     * @return
+     */
     public static String parseSiteCode(String siteCode) {
         return switch (siteCode) {
             case "p" -> "p";

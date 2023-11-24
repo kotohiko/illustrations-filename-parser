@@ -1,6 +1,6 @@
 package com.jacob;
 
-import com.jacob.parse.ParseFileNameToUrlEntrance;
+import com.jacob.parse.ParsingFileNameToUrlEntrance;
 
 import java.io.IOException;
 
@@ -12,6 +12,6 @@ import java.io.IOException;
  */
 public final class ParserApplication {
     public static void main(String[] args) throws IOException {
-        ParseFileNameToUrlEntrance.interact();
+        ParsingFileNameToUrlEntrance.interact();
     }
 }

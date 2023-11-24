@@ -8,9 +8,18 @@ package com.jacob.parse.core;
  */
 public final class FilenameParser {
 
+    /**
+     * Don't let anyone instantiate this class.
+     */
     private FilenameParser() {
     }
 
+    /**
+     * <a href="https://www.pixiv.net/">Pixiv</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String pixivIllustrationsAndIllustratorIdParser(String str) {
         if (str.contains("_")) {
             str = str.substring(0, str.indexOf('_'));
@@ -20,6 +29,12 @@ public final class FilenameParser {
         }
     }
 
+    /**
+     * <a href="https://twitter.com/">Twitter</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String twitterParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
@@ -33,6 +48,12 @@ public final class FilenameParser {
         }
     }
 
+    /**
+     * <a href="https://www.pixiv.net/">Yande</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String yandeParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
@@ -42,6 +63,12 @@ public final class FilenameParser {
         return String.valueOf(sb);
     }
 
+    /**
+     * <a href="https://www.miyoushe.com/">Miyoushe</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String miyousheParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
@@ -57,6 +84,12 @@ public final class FilenameParser {
         return sb.toString();
     }
 
+    /**
+     * <a href="https://danbooru.donmai.us/">Danbooru</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String danbooruParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
@@ -65,6 +98,12 @@ public final class FilenameParser {
         return String.valueOf(sb);
     }
 
+    /**
+     * <a href="https://www.bilibili.com/">Bilibili</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String bilibiliParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");

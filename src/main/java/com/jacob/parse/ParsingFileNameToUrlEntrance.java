@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Entrance of Parsing Filename to URL.
+ * Entrance of parsing filename to URL.
  *
  * @author Jacob Suen
  * @since Oct 2, 2023
  */
-public final class ParseFileNameToUrlEntrance {
+public final class ParsingFileNameToUrlEntrance {
+
+    private static final String END_LINE = "********************************END LINE********************************";
 
     private static final String ENTRANCE_MESSAGE = """
             Choose your entrance:
@@ -28,7 +30,7 @@ public final class ParseFileNameToUrlEntrance {
     /**
      * Don't let anyone instantiate this class
      */
-    private ParseFileNameToUrlEntrance() {
+    private ParsingFileNameToUrlEntrance() {
     }
 
     private static void enterAccessCode() {
@@ -36,9 +38,13 @@ public final class ParseFileNameToUrlEntrance {
     }
 
     private static void endLinePrint() {
-        System.out.println("********************************END LINE********************************");
+        System.out.println(END_LINE);
     }
 
+    /**
+     * Interaction logic.
+     * @throws IOException I/O exception
+     */
     public static void interact() throws IOException {
         System.out.println(ENTRANCE_MESSAGE);
         enterAccessCode();
