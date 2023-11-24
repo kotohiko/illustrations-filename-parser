@@ -17,8 +17,8 @@ public final class ParsingFileNameToUrlEntrance {
     private static final String ENTRANCE_MESSAGE = """
             Choose your entrance:
             [a]lphacoders
-            [bi]libili
             [ba]idu Netdisk
+            [bi]libili
             [d]anbooru
             [m]iyoushe
             [n]iconico ニコニコ静画
