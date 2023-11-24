@@ -34,6 +34,12 @@ public final class CommonEnter {
         };
     }
 
+    /**
+     * Filename parsing method entrance.
+     * @param siteCode site code
+     * @param fileName filename
+     * @return parsed URL
+     */
     public static String parseFileName(String siteCode, String fileName) {
         return switch (siteCode) {
             case "p" -> FilenameParser.pixivIllustrationsAndIllustratorIdParser(fileName);

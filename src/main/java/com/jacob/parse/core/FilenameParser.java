@@ -129,6 +129,12 @@ public final class FilenameParser {
         return sb.toString();
     }
 
+    /**
+     * <a href="https://www.youtube.com/">YouTube</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String youtubeParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
