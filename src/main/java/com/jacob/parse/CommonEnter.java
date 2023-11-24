@@ -42,7 +42,7 @@ public final class CommonEnter {
      */
     public static String parseFileName(String siteCode, String fileName) {
         return switch (siteCode) {
-            case "p" -> FilenameParser.pixivIllustrationsAndIllustratorIdParser(fileName);
+            case "p" -> FilenameParser.pixivIllustrationsOrIllustratorIdParser(fileName);
             case "t" -> FilenameParser.twitterParser(fileName);
             case "ya" -> FilenameParser.yandeParser(fileName);
             case "yo" -> FilenameParser.youtubeParser(fileName);

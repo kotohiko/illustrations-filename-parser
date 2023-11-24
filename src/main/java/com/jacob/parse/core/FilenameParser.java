@@ -20,7 +20,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
-    public static String pixivIllustrationsAndIllustratorIdParser(String str) {
+    public static String pixivIllustrationsOrIllustratorIdParser(String str) {
         if (str.contains("_")) {
             str = str.substring(0, str.indexOf('_'));
             return "https://www.pixiv.net/artworks/" + str;
@@ -107,8 +107,12 @@ public final class FilenameParser {
     public static String bilibiliParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
-        sb.insert(24, "/");
-        sb.insert(sb.indexOf("opus") + 4, "/");
+        if (str.contains("opus")) {
+            sb.insert(24, "/");
+            sb.insert(sb.indexOf("opus") + 4, "/");
+        } else if (str.contains("t.bilibili")) {
+            sb.insert(22, "/");
+        }
         sb.delete(sb.indexOf("spm_id_from"), sb.length());
         return sb.toString();
     }
