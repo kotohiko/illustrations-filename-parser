@@ -67,15 +67,19 @@ public final class ParsingFileNameToUrlEntrance {
                 String filename = line;
                 String out = CommonEnter.parseFileName(sideCodeValidation, filename);
                 System.out.println(out);
-
-                // 支持解析以后直接通过浏览器来打开
-                Desktop desktop = Desktop.getDesktop();
-                URI uri = new URI(out);
-                desktop.browse(uri);
-
+                openUriByBrowser(out);
                 endLinePrint();
                 enterAccessCode();
             }
         }
+    }
+
+    /**
+     * 支持解析以后直接通过浏览器来打开
+     */
+    private static void openUriByBrowser(String out) throws URISyntaxException, IOException {
+        Desktop desktop = Desktop.getDesktop();
+        URI uri = new URI(out);
+        desktop.browse(uri);
     }
 }
