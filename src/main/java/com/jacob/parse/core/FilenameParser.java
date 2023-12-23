@@ -104,7 +104,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
-    public static String bilibiliParser(String str) {
+    public static String bilibiliIllustrationsParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
         if (str.contains("opus")) {
@@ -114,6 +114,20 @@ public final class FilenameParser {
             sb.insert(22, "/");
         }
         sb.delete(sb.indexOf("spm_id_from"), sb.length());
+        return sb.toString();
+    }
+
+    /**
+     * <a href="https://www.bilibili.com/">Bilibili</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
+    public static String bilibiliVideosParser(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        sb.insert(5, "://");
+        sb.insert(sb.indexOf("video"), "/");
+        sb.insert(sb.indexOf("video") + 5, "/");
         return sb.toString();
     }
 

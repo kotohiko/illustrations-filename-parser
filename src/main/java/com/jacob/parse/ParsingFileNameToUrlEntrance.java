@@ -22,6 +22,7 @@ public final class ParsingFileNameToUrlEntrance {
             [a]lphacoders
             [ba]idu Netdisk
             [bi]libili
+            [bi]libili [v]ideos (please enter "biv" if by this access)
             [d]anbooru
             [m]iyoushe
             [n]iconico ニコニコ静画
@@ -49,7 +50,7 @@ public final class ParsingFileNameToUrlEntrance {
      *
      * @throws IOException I/O exception
      */
-    public static void interact() throws IOException, URISyntaxException {
+    public static void interact() throws IOException {
         System.out.println(ENTRANCE_MESSAGE);
         enterAccessCode();
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -77,9 +78,18 @@ public final class ParsingFileNameToUrlEntrance {
     /**
      * 支持解析以后直接通过浏览器来打开
      */
-    private static void openUriByBrowser(String out) throws URISyntaxException, IOException {
+    private static void openUriByBrowser(String out) {
         Desktop desktop = Desktop.getDesktop();
-        URI uri = new URI(out);
-        desktop.browse(uri);
+        URI uri;
+        try {
+            uri = new URI(out);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            desktop.browse(uri);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

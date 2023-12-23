@@ -15,6 +15,7 @@ public final class CommonEnter {
 
     /**
      * Sitecode validation.
+     *
      * @param siteCode code of variety websites
      * @return
      */
@@ -30,12 +31,14 @@ public final class CommonEnter {
             case "ba" -> "ba";
             case "n" -> "n";
             case "a" -> "a";
+            case "biv" -> "biv";
             default -> null;
         };
     }
 
     /**
      * Filename parsing method entrance.
+     *
      * @param siteCode site code
      * @param fileName filename
      * @return parsed URL
@@ -48,10 +51,11 @@ public final class CommonEnter {
             case "yo" -> FilenameParser.youtubeParser(fileName);
             case "m" -> FilenameParser.miyousheParser(fileName);
             case "d" -> FilenameParser.danbooruParser(fileName);
-            case "bi" -> FilenameParser.bilibiliParser(fileName);
+            case "bi" -> FilenameParser.bilibiliIllustrationsParser(fileName);
             case "ba" -> FilenameParser.baiduNetDiskParser(fileName);
             case "n" -> FilenameParser.nicoVideoParser(fileName);
             case "a" -> FilenameParser.alphacodersParser(fileName);
+            case "biv" -> FilenameParser.bilibiliVideosParser(fileName);
             default -> null;
         };
     }

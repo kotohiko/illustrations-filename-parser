@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
  * @since Oct 25, 2023
  */
 public final class ParserApplication {
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    public static void main(String[] args) throws IOException {
         ParsingFileNameToUrlEntrance.interact();
     }
 }
