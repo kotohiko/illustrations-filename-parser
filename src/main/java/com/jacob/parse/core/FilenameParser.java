@@ -113,7 +113,9 @@ public final class FilenameParser {
         } else if (str.contains("t.bilibili")) {
             sb.insert(22, "/");
         }
-        sb.delete(sb.indexOf("spm_id_from"), sb.length());
+        if (str.contains("spm_id_from")) {
+            sb.delete(sb.indexOf("spm_id_from"), sb.length());
+        }
         return sb.toString();
     }
 

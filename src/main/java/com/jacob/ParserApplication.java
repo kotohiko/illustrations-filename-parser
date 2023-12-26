@@ -3,7 +3,6 @@ package com.jacob;
 import com.jacob.parse.ParsingFileNameToUrlEntrance;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 /**
  * Startup class of the project.
