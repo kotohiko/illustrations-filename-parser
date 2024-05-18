@@ -38,7 +38,11 @@ public final class FilenameParser {
     public static String twitterParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
-        sb.insert(19, "/");
+        if (str.contains("twitter")) {
+            sb.insert(19, "/");
+        } else if (str.contains("httpsx")) {
+            sb.insert(13, "/");
+        }
         sb.insert(sb.indexOf("status"), "/");
         sb.insert(sb.indexOf("status") + 6, "/");
         if (str.contains("photo")) {

@@ -32,6 +32,7 @@ public final class CommonEnter {
             case "n" -> "n";
             case "a" -> "a";
             case "biv" -> "biv";
+            case "x" -> "x";
             default -> null;
         };
     }
@@ -46,7 +47,7 @@ public final class CommonEnter {
     public static String parseFileName(String siteCode, String fileName) {
         return switch (siteCode) {
             case "p" -> FilenameParser.pixivIllustrationsOrIllustratorIdParser(fileName);
-            case "t" -> FilenameParser.twitterParser(fileName);
+            case "t", "x" -> FilenameParser.twitterParser(fileName);
             case "ya" -> FilenameParser.yandeParser(fileName);
             case "yo" -> FilenameParser.youtubeParser(fileName);
             case "m" -> FilenameParser.miyousheParser(fileName);
