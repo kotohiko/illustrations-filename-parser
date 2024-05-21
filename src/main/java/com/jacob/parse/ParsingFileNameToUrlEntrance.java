@@ -22,7 +22,7 @@ public final class ParsingFileNameToUrlEntrance {
             [a]lphacoders
             [ba]idu Netdisk
             [bi]libili
-            [bi]libili [v]ideos (please enter "biv" if by this access)
+            [bi]libili [v]ideos (please input "biv" if by this access)
             [d]anbooru
             [m]iyoushe
             [n]iconico ニコニコ静画
