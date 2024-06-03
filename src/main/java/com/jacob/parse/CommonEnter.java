@@ -33,6 +33,7 @@ public final class CommonEnter {
             case "a" -> "a";
             case "biv" -> "biv";
             case "x" -> "x";
+            case "cave" -> "cave";
             default -> null;
         };
     }
@@ -57,6 +58,7 @@ public final class CommonEnter {
             case "n" -> FilenameParser.nicoVideoParser(fileName);
             case "a" -> FilenameParser.alphacodersParser(fileName);
             case "biv" -> FilenameParser.bilibiliVideosParser(fileName);
+            case "cave" -> FilenameParser.wallpaperCaveParser(fileName);
             default -> null;
         };
     }

@@ -45,8 +45,8 @@ public final class FilenameParser {
         }
         sb.insert(sb.indexOf("status"), "/");
         sb.insert(sb.indexOf("status") + 6, "/");
-        if (str.contains("photo")) {
-            return sb.substring(0, sb.indexOf("photo"));
+        if (str.contains("photo1")) {
+            return sb.substring(0, sb.indexOf("photo1"));
         } else {
             return sb.toString();
         }
@@ -164,5 +164,9 @@ public final class FilenameParser {
         sb.insert(5, "://");
         sb.insert(sb.indexOf("youtu.be") + 8, "/");
         return sb.toString();
+    }
+
+    public static String wallpaperCaveParser(String str) {
+        return "https://wallpapercave.com/w/" + str;
     }
 }
