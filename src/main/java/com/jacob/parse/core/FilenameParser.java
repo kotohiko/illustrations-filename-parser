@@ -166,6 +166,12 @@ public final class FilenameParser {
         return sb.toString();
     }
 
+    /**
+     * <a href="https://wallpapercave.com/">Wallpaper Cave</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String wallpaperCaveParser(String str) {
         return "https://wallpapercave.com/w/" + str;
     }
