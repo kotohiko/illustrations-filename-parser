@@ -45,8 +45,14 @@ public final class FilenameParser {
         }
         sb.insert(sb.indexOf("status"), "/");
         sb.insert(sb.indexOf("status") + 6, "/");
-        if (str.contains("photo1")) {
+        if (str.endsWith("photo1")) {
             return sb.substring(0, sb.indexOf("photo1"));
+        } else if (str.endsWith("photo2")) {
+            return sb.substring(0, sb.indexOf("photo2"));
+        } else if (str.endsWith("photo3")) {
+            return sb.substring(0, sb.indexOf("photo3"));
+        } else if (str.endsWith("photo4")) {
+            return sb.substring(0, sb.indexOf("photo4"));
         } else {
             return sb.toString();
         }
@@ -141,10 +147,22 @@ public final class FilenameParser {
         return "pan.baidu.com/s/" + str;
     }
 
+    /**
+     * <a href="https://www.nicovideo.jp/">Niconico</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String nicoVideoParser(String str) {
         return "https://seiga.nicovideo.jp/seiga/" + str;
     }
 
+    /**
+     * <a href="https://alphacoders.com/">Alpha Coders</a> URL-like filename parser.
+     *
+     * @param str filename string param
+     * @return parsed URL
+     */
     public static String alphacodersParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
