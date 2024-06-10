@@ -46,31 +46,23 @@ public final class ParsingFileNameToUrlEntrance {
     }
 
     /**
-     * Interaction logic.
+     * 交互逻辑
      *
      * @throws IOException I/O exception
      */
-    public static void interact() throws IOException {
+    public static void interact() throws Exception {
         System.out.println(ENTRANCE_MESSAGE);
         enterAccessCode();
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
-            String siteCode = line;
-            String sideCodeValidation = CommonEnter.parseSiteCode(siteCode);
-            if (sideCodeValidation == null || sideCodeValidation.isBlank()) {
+            String siteCodeValidation = CommonEnter.parseSiteCode(line);
+            if (siteCodeValidation == null || siteCodeValidation.isBlank()) {
                 System.out.println("Access code invalid, please try again.");
                 endLinePrint();
                 interact();
             } else {
-                System.out.print("Enter filename: ");
-                line = in.readLine();
-                String filename = line;
-                String out = CommonEnter.parseFileName(sideCodeValidation, filename);
-                System.out.println(out);
-                openUriByBrowser(out);
-                endLinePrint();
-                enterAccessCode();
+                parseFileName(in, siteCodeValidation);
             }
         }
     }
@@ -87,9 +79,24 @@ public final class ParsingFileNameToUrlEntrance {
             throw new RuntimeException(e);
         }
         try {
+
             desktop.browse(uri);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static void parseFileName(BufferedReader in, String sideCodeValidation) throws Exception {
+        System.out.print("Enter filename: ");
+        String filename = in.readLine();
+        try {
+            String out = CommonEnter.parseFileName(sideCodeValidation, filename);
+            System.out.println(out);
+            openUriByBrowser(out);
+        } catch (Exception e) {
+            throw new Exception("解析失败，请检查输入是否有误");
+        }
+        endLinePrint();
+        enterAccessCode();
     }
 }
