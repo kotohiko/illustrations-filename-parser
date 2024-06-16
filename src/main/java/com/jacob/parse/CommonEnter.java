@@ -14,7 +14,7 @@ public final class CommonEnter {
     }
 
     /**
-     * Sitecode validation.
+     * Site code validation.
      *
      * @param siteCode code of variety websites
      * @return

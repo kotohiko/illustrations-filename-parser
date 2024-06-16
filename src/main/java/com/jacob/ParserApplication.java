@@ -2,8 +2,6 @@ package com.jacob;
 
 import com.jacob.parse.ParsingFileNameToUrlEntrance;
 
-import java.io.IOException;
-
 /**
  * Startup class of the project.
  *
