@@ -10,6 +10,6 @@ import com.jacob.parse.ParsingFileNameToUrlEntrance;
  */
 public final class ParserApplication {
     public static void main(String[] args) throws Exception {
-        ParsingFileNameToUrlEntrance.interact();
+        ParsingFileNameToUrlEntrance.getFilename();
     }
 }

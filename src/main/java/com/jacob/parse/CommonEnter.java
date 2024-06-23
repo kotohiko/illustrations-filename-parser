@@ -2,6 +2,9 @@ package com.jacob.parse;
 
 import com.jacob.parse.core.FilenameParser;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Get input data from console/front-end.
  */
@@ -14,52 +17,27 @@ public final class CommonEnter {
     }
 
     /**
-     * Site code validation.
-     *
-     * @param siteCode code of variety websites
-     * @return
-     */
-    public static String parseSiteCode(String siteCode) {
-        return switch (siteCode) {
-            case "p" -> "p";
-            case "t" -> "t";
-            case "ya" -> "ya";
-            case "yo" -> "yo";
-            case "m" -> "m";
-            case "d" -> "d";
-            case "bi" -> "bi";
-            case "ba" -> "ba";
-            case "n" -> "n";
-            case "a" -> "a";
-            case "biv" -> "biv";
-            case "x" -> "x";
-            case "cave" -> "cave";
-            default -> null;
-        };
-    }
-
-    /**
      * Filename parsing method entrance.
      *
-     * @param siteCode site code
      * @param fileName filename
      * @return parsed URL
      */
-    public static String parseFileName(String siteCode, String fileName) {
-        return switch (siteCode) {
-            case "p" -> FilenameParser.pixivIllustrationsOrIllustratorIdParser(fileName);
-            case "t", "x" -> FilenameParser.twitterParser(fileName);
-            case "ya" -> FilenameParser.yandeParser(fileName);
-            case "yo" -> FilenameParser.youtubeParser(fileName);
-            case "m" -> FilenameParser.miyousheParser(fileName);
-            case "d" -> FilenameParser.danbooruParser(fileName);
-            case "bi" -> FilenameParser.bilibiliIllustrationsParser(fileName);
-            case "ba" -> FilenameParser.baiduNetDiskParser(fileName);
-            case "n" -> FilenameParser.nicoVideoParser(fileName);
-            case "a" -> FilenameParser.alphacodersParser(fileName);
-            case "biv" -> FilenameParser.bilibiliVideosParser(fileName);
-            case "cave" -> FilenameParser.wallpaperCaveParser(fileName);
-            default -> null;
-        };
+    public static String parseFileName(String fileName) {
+        String pixivPattern = "^\\d{9}_p\\d{1,2}$";
+        String pixivPattern2 = "^\\d{8}_p\\d{1,2}$";
+        Matcher pixivMatcher = Pattern.compile(pixivPattern).matcher(fileName);
+        Matcher pixivMatcher2 = Pattern.compile(pixivPattern2).matcher(fileName);
+        if (pixivMatcher.find() || pixivMatcher2.find()) {
+            return FilenameParser.pixivIllustrationsOrIllustratorIdParser(fileName);
+        } else if (fileName.contains("httpstwitter") || fileName.contains("httpsx")) {
+            return FilenameParser.twitterParser(fileName);
+        } else if (fileName.contains("httpsdanbooru")) {
+            return FilenameParser.danbooruParser(fileName);
+        } else if (fileName.contains("bilibili")) {
+            return FilenameParser.bilibiliIllustrationsParser(fileName);
+        } else if (fileName.contains("miyoushe.com")) {
+            return FilenameParser.miyousheParser(fileName);
+        }
+        return "";
     }
 }

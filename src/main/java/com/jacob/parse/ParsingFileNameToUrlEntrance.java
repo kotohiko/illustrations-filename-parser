@@ -15,30 +15,13 @@ import java.net.URISyntaxException;
  */
 public final class ParsingFileNameToUrlEntrance {
 
-    private static final String END_LINE = "********************************END LINE********************************";
-
-    private static final String ENTRANCE_MESSAGE = """
-            Choose your entrance:
-            [a]lphacoders
-            [ba]idu Netdisk
-            [bi]libili
-            [bi]libili [v]ideos (please input "biv" if by this access)
-            [d]anbooru
-            [m]iyoushe
-            [n]iconico ニコニコ静画
-            [p]ixiv
-            [t]witter
-            [ya]nde
-            [yo]utube""";
+    private static final String END_LINE
+            = "-------------------------------------------END LINE-------------------------------------------";
 
     /**
      * Don't let anyone instantiate this class
      */
     private ParsingFileNameToUrlEntrance() {
-    }
-
-    private static void enterAccessCode() {
-        System.out.print("Enter access code (e.g. p): ");
     }
 
     private static void endLinePrint() {
@@ -50,19 +33,18 @@ public final class ParsingFileNameToUrlEntrance {
      *
      * @throws IOException I/O exception
      */
-    public static void interact() throws Exception {
-        System.out.println(ENTRANCE_MESSAGE);
-        enterAccessCode();
+    public static void getFilename() throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
+        System.out.print("Please enter your filename: ");
         while ((line = in.readLine()) != null) {
-            String siteCodeValidation = CommonEnter.parseSiteCode(line);
-            if (siteCodeValidation == null || siteCodeValidation.isBlank()) {
+            String retUrl = CommonEnter.parseFileName(line);
+            if (retUrl.isBlank()) {
                 System.out.println("Access code invalid, please try again.");
                 endLinePrint();
-                interact();
+                getFilename();
             } else {
-                parseFileName(in, siteCodeValidation);
+                openBrowser(retUrl);
             }
         }
     }
@@ -70,33 +52,32 @@ public final class ParsingFileNameToUrlEntrance {
     /**
      * 支持解析以后直接通过浏览器来打开
      */
-    private static void openUriByBrowser(String out) {
+    private static void openUriByBrowser(String out) throws Exception {
         Desktop desktop = Desktop.getDesktop();
-        URI uri;
+        URI uri = null;
         try {
             uri = new URI(out);
         } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+            System.out.println("解析失败，请检查输入是否有误");
+            getFilename();
         }
         try {
-
             desktop.browse(uri);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("解析失败，请检查输入是否有误");
+            getFilename();
         }
     }
 
-    private static void parseFileName(BufferedReader in, String sideCodeValidation) throws Exception {
-        System.out.print("Enter filename: ");
-        String filename = in.readLine();
+    private static void openBrowser(String retUrl) throws Exception {
         try {
-            String out = CommonEnter.parseFileName(sideCodeValidation, filename);
-            System.out.println(out);
-            openUriByBrowser(out);
+            System.out.println(retUrl);
+            openUriByBrowser(retUrl);
         } catch (Exception e) {
-            throw new Exception("解析失败，请检查输入是否有误");
+            System.out.println("解析失败，请检查输入是否有误");
+            getFilename();
         }
         endLinePrint();
-        enterAccessCode();
+        getFilename();
     }
 }
