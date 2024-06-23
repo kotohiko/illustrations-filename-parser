@@ -64,6 +64,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
+    @SuppressWarnings("unused")
     public static String yandeParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
