@@ -1,6 +1,7 @@
-package com.jacob.parse;
+package com.jacob.parse.entrance;
 
 import com.jacob.parse.core.FilenameParser;
+import com.jacob.parse.constants.Constants;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,10 +24,8 @@ public final class CommonEnter {
      * @return parsed URL
      */
     public static String parseFileName(String fileName) {
-        String pixivPattern = "^\\d{9}_p\\d{1,2}$";
-        String pixivPattern2 = "^\\d{8}_p\\d{1,2}$";
-        Matcher pixivMatcher = Pattern.compile(pixivPattern).matcher(fileName);
-        Matcher pixivMatcher2 = Pattern.compile(pixivPattern2).matcher(fileName);
+        Matcher pixivMatcher = Pattern.compile(Constants.pixivPattern).matcher(fileName);
+        Matcher pixivMatcher2 = Pattern.compile(Constants.pixivPattern2).matcher(fileName);
         if (pixivMatcher.find() || pixivMatcher2.find()) {
             return FilenameParser.pixivIllustrationsOrIllustratorIdParser(fileName);
         } else if (fileName.contains("httpstwitter") || fileName.contains("httpsx")) {

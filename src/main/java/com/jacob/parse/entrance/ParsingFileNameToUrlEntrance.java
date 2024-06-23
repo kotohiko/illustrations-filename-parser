@@ -1,4 +1,4 @@
-package com.jacob.parse;
+package com.jacob.parse.entrance;
 
 import java.awt.*;
 import java.io.BufferedReader;
