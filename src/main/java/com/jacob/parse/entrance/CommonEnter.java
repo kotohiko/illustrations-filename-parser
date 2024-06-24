@@ -24,8 +24,8 @@ public final class CommonEnter {
      * @return parsed URL
      */
     public static String parseFileName(String fileName) {
-        Matcher pixivMatcher = Pattern.compile(Constants.pixivPattern).matcher(fileName);
-        Matcher pixivMatcher2 = Pattern.compile(Constants.pixivPattern2).matcher(fileName);
+        Matcher pixivMatcher = Pattern.compile(Constants.PIXIV_PATTERN).matcher(fileName);
+        Matcher pixivMatcher2 = Pattern.compile(Constants.PIXIV_PATTERN_2).matcher(fileName);
         if (pixivMatcher.find() || pixivMatcher2.find()) {
             return FilenameParser.pixivIllustrationsOrIllustratorIdParser(fileName);
         } else if (fileName.contains("httpstwitter") || fileName.contains("httpsx")) {
