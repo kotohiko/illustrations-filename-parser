@@ -36,18 +36,22 @@ public final class ParsingFileNameToUrlEntrance {
 
     /**
      * 交互逻辑
-     *
-     * @throws IOException I/O exception
      */
-    public static void getFilename() throws Exception {
+    public static void getFilename() {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String line;
+        String line = "";
         startLinePrint();
         System.out.print("Please enter your filename: ");
-        while ((line = in.readLine()) != null) {
+        while (true) {
+            try {
+                if ((line = in.readLine()) == null) break;
+            } catch (IOException e) {
+                System.out.println("I/O exception happened.");
+                getFilename();
+            }
             String retUrl = CommonEnter.parseFileName(line);
             if (retUrl.isBlank()) {
-                System.out.println("解析URL为空，请检查输入是否正常。");
+                System.out.println("Url is blank, please check if there are any errors in the input content.");
                 endLinePrint();
                 getFilename();
             } else {
@@ -62,20 +66,16 @@ public final class ParsingFileNameToUrlEntrance {
     /**
      * 支持解析以后直接通过浏览器来打开
      */
-    private static void openUriByBrowser(String out) throws Exception {
-        System.out.println(out);
+    private static void openUriByBrowser(String out) {
+        System.out.println("Parsed successfully: " + out + ","
+                + " your default browser will be opened automatically and heading to this url...");
         Desktop desktop = Desktop.getDesktop();
-        URI uri = null;
         try {
-            uri = new URI(out);
-        } catch (URISyntaxException e) {
-            System.out.println("解析失败，请检查输入是否有误");
-            getFilename();
-        }
-        try {
+            URI uri = new URI(out);
             desktop.browse(uri);
-        } catch (IOException e) {
-            System.out.println("解析失败，请检查输入是否有误");
+        } catch (URISyntaxException | IOException e) {
+            System.out.println("An url syntax error happened, or url is null," +
+                    " please check if there are any errors in the input content.");
             getFilename();
         }
     }

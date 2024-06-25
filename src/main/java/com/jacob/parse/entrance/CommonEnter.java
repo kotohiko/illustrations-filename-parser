@@ -1,7 +1,7 @@
 package com.jacob.parse.entrance;
 
-import com.jacob.parse.core.FilenameParser;
 import com.jacob.parse.constants.Constants;
+import com.jacob.parse.core.FilenameParser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

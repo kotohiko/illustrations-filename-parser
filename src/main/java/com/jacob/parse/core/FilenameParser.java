@@ -136,6 +136,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
+    @SuppressWarnings("unused")
     public static String bilibiliVideosParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
@@ -144,6 +145,7 @@ public final class FilenameParser {
         return sb.toString();
     }
 
+    @SuppressWarnings("unused")
     public static String baiduNetDiskParser(String str) {
         return "pan.baidu.com/s/" + str;
     }
@@ -154,6 +156,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
+    @SuppressWarnings("unused")
     public static String nicoVideoParser(String str) {
         return "https://seiga.nicovideo.jp/seiga/" + str;
     }
@@ -164,6 +167,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
+    @SuppressWarnings("unused")
     public static String alphacodersParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
@@ -178,6 +182,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
+    @SuppressWarnings("unused")
     public static String youtubeParser(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.insert(5, "://");
@@ -191,6 +196,7 @@ public final class FilenameParser {
      * @param str filename string param
      * @return parsed URL
      */
+    @SuppressWarnings("unused")
     public static String wallpaperCaveParser(String str) {
         return "https://wallpapercave.com/w/" + str;
     }

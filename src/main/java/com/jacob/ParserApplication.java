@@ -9,7 +9,7 @@ import com.jacob.parse.entrance.ParsingFileNameToUrlEntrance;
  * @since Oct 25, 2023
  */
 public final class ParserApplication {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         ParsingFileNameToUrlEntrance.getFilename();
     }
 }
