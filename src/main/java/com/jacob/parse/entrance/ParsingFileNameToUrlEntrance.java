@@ -26,14 +26,6 @@ public final class ParsingFileNameToUrlEntrance {
     private ParsingFileNameToUrlEntrance() {
     }
 
-    private static void startLinePrint() {
-        System.out.println(START_LINE);
-    }
-
-    private static void endLinePrint() {
-        System.out.println(END_LINE);
-    }
-
     /**
      * 交互逻辑
      */
@@ -44,7 +36,9 @@ public final class ParsingFileNameToUrlEntrance {
         System.out.print("Please enter your filename: ");
         while (true) {
             try {
-                if ((line = in.readLine()) == null) break;
+                if ((line = in.readLine()) == null) {
+                    break;
+                }
             } catch (IOException e) {
                 System.out.println("I/O exception happened.");
                 getFilename();
@@ -78,5 +72,13 @@ public final class ParsingFileNameToUrlEntrance {
                     " please check if there are any errors in the input content.");
             getFilename();
         }
+    }
+
+    private static void startLinePrint() {
+        System.out.println(START_LINE);
+    }
+
+    private static void endLinePrint() {
+        System.out.println(END_LINE);
     }
 }
