@@ -52,6 +52,9 @@ public final class ParsingFileNameToUrlEntrance {
                 getFilename();
             } else {
                 openUriByBrowser(retUrl);
+                endLinePrint();
+                startLinePrint();
+                System.out.print("Please enter your filename: ");
             }
         }
     }
